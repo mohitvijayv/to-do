@@ -1,10 +1,9 @@
 # Software Design Document for To-do web application.
 
 ## Table of Contents
-1. [Project Overview](##Project)
-2. [Database schema](##example2)
-3. [Rest API](##third-example)
-4. [Fourth Example](##fourth-example)
+1. [Project Overview](##project-overview)
+2. [Database schema](##database-schema)
+3. [Rest API](##rest-api)
 
 ## Project Overview
 To-do application is task management web application where users will have role-based access and they can create and manage their tasks.
