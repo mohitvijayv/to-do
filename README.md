@@ -54,7 +54,7 @@ For User management, there are 3 tables involved in the process, auth prefix is 
 |Tasks|
 |----|
 •	Task_id (INT) (primary key)
-•	Username (VARCHAR)
+•	Userid (INT)
 •	Task_name (VARCHAR)
 •	Task_due_date (TIMESTAMP)
 •	Task_description(TEXT)
