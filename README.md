@@ -94,10 +94,10 @@ To-do application’s standard API allows standard http methods against tasks an
 
 |Resource URL|GET|POST|PUT|DELETE|
 |------------|-----|-----|-----|---------|
-/api/todo/v1/tasks | Returns a list of tasks| Create a new task|Bulk Update of tasks|Delete all tasks
-|/api/todo/v1/tasks/task-1| Returns a specific task|not allowed (status code: 405)|Update a specific task|Delete a specific task|
-/api/todo/v1/users | Returns a list of users| Create a new user|Bulk Update of users|Delete all users
-|/api/todo/v1/users/user-1| Returns a specific user|not allowed (status code: 405)|Update a specific user|Delete a specific user|
+|/api/todo/v1/tasks | Returns a list of tasks| Create a new task|Update task with given task id in request body|Delete all tasks
+|/api/todo/v1/tasks/task-1| Returns a specific task|not allowed (status code: 405)|not allowed|Delete a specific task|
+/api/todo/v1/users | Returns a list of users| Create a new user|Update user with given user id|Delete all users
+|/api/todo/v1/users/user-1| Returns a specific user|not allowed (status code: 405)|not allowed|Delete a specific user|
 
 ### Example:
 ``` GET /api/todo/tasks```
