@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import static com.fico.todo.utilities.Constants.VERSION_V1;
 
@@ -58,9 +54,7 @@ public class AuthenticationController {
             return ResponseEntity.ok(new AuthToken(token));
         } catch (Exception e){
             System.out.println("ERROR WHILE AUTH VALIDATE ###########");
-            //TaskApiResponse resp = new TaskApiResponse("F02", "USER NOT FOUND", VERSION_V1);
             BaseApiResponse br = new BaseApiResponse("F02", "USER NOT FOUND", VERSION_V1);
-
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(br);
         }
 

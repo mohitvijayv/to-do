@@ -35,14 +35,14 @@ public class TaskController {
         return task;
     }
 
-    @PutMapping(path="tasks", consumes = {"application/json"})
+    @PutMapping(path="tasks", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Task updateTask(@RequestBody Task task){
         taskRepository.save(task);
         return task;
     }
 
 
-    @GetMapping(value = "tasks", consumes = {"application/json"})
+    @GetMapping(value = "tasks", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Task> getTasks(Principal principal){
         Set<String> roles = userDetailsService.getRoleSet(principal);
         if(roles.contains("ADMIN"))
@@ -52,7 +52,7 @@ public class TaskController {
 
     }
 
-    @GetMapping(value = "tasks", consumes = "application/json", params = {"userId"})
+    @GetMapping(value = "tasks", consumes = MediaType.APPLICATION_JSON_VALUE, params = {"userId"})
     public ResponseEntity<TaskApiResponse> getTasksByUserId(@RequestParam(value="userId") Optional<Long> userId, Principal principal){
         Set<String> roles = userDetailsService.getRoleSet(principal);
         if(principal.getName()==userRepository.findById(userId).getUsername() || roles.contains("ADMIN")) {
