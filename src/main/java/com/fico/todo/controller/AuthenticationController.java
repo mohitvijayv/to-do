@@ -5,6 +5,7 @@ import com.fico.todo.security.TokenProvider;
 import com.fico.todo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -32,7 +33,7 @@ public class AuthenticationController {
     @Autowired
     TokenProvider tokenProvider;
 
-    @PostMapping(path="/register", consumes = {"application/json"})
+    @PostMapping(path="/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public User register(@RequestBody User user){
         userService.save(user);
         return user;
