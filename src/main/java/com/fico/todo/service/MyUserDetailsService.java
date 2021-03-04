@@ -1,7 +1,7 @@
 package com.fico.todo.service;
-import com.fico.todo.model.auth.Role;
-import com.fico.todo.model.auth.User;
-import com.fico.todo.repository.auth.UserRepository;
+import com.fico.todo.model.AuthRole;
+import com.fico.todo.model.AuthUser;
+import com.fico.todo.repository.AuthUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +18,11 @@ import java.util.Set;
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private AuthUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        AuthUser user = userRepository.findByUsername(username);
         if(user==null){
             throw new UsernameNotFoundException("user 404");
         }
@@ -30,11 +30,11 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
     public Set getRoleSet(Principal principal){
-        User user = userRepository.findByUsername(principal.getName());
+        AuthUser user = userRepository.findByUsername(principal.getName());
         Set<String> roles = new HashSet<String>();
         Iterator value  = user.getRoles().iterator();
         while (value.hasNext()){
-            roles.add(((Role) value.next()).getRole());
+            roles.add(((AuthRole) value.next()).getRole());
         }
         return roles;
     }

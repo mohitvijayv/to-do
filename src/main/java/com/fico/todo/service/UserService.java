@@ -1,8 +1,8 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.auth.User;
+import com.fico.todo.model.AuthUser;
 
 public interface UserService {
-    User save(User user);
+    AuthUser save(AuthUser user);
 
 }

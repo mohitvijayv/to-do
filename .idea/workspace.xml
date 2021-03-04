@@ -9,6 +9,25 @@
       <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/ToDoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/ToDoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/auth/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/BaseApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/response/BaseApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/auth/LoginUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/auth/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/task/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/TaskApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/task/TaskApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/auth/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/auth/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/task/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/repository/auth/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/MyUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +77,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.fico.todo.service" />
+      <recent name="com.fico.todo.model.response" />
+      <recent name="com.fico.todo.model.task" />
+      <recent name="com.fico.todo.model.auth" />
+      <recent name="com.fico.todo.repository.task" />
+      <recent name="com.fico.todo.repository.auth" />
     </key>
   </component>
   <component name="RunManager">
@@ -92,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613616711287</updated>
       <workItem from="1613616712561" duration="20388000" />
-      <workItem from="1613788189406" duration="72836000" />
+      <workItem from="1613788189406" duration="73380000" />
     </task>
     <servers />
   </component>

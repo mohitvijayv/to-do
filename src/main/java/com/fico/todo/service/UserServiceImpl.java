@@ -1,8 +1,8 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.auth.Role;
-import com.fico.todo.model.auth.User;
-import com.fico.todo.repository.auth.UserRepository;
+import com.fico.todo.model.AuthRole;
+import com.fico.todo.model.AuthUser;
+import com.fico.todo.repository.AuthUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,13 +20,13 @@ public class UserServiceImpl implements UserService {
     private RoleService roleService;
 
     @Autowired
-    private UserRepository userRepository;
+    private AuthUserRepository userRepository;
 
     @Override
-    public User save(User user) {
+    public AuthUser save(AuthUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Role role = roleService.findByName("USER");
-        Set<Role> roleSet = new HashSet<>();
+        AuthRole role = roleService.findByName("USER");
+        Set<AuthRole> roleSet = new HashSet<>();
         roleSet.add(role);
         user.setRoles(roleSet);
         return userRepository.save(user);

@@ -1,6 +1,6 @@
-package com.fico.todo.repository.task;
+package com.fico.todo.repository;
 
-import com.fico.todo.model.task.Task;
+import com.fico.todo.model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

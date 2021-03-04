@@ -1,9 +1,9 @@
 package com.fico.todo.controller;
 
-import com.fico.todo.model.auth.AuthToken;
-import com.fico.todo.model.auth.LoginUser;
-import com.fico.todo.model.auth.User;
-import com.fico.todo.model.response.BaseApiResponse;
+import com.fico.todo.model.AuthToken;
+import com.fico.todo.model.AuthLoginUser;
+import com.fico.todo.model.AuthUser;
+import com.fico.todo.model.BaseApiResponse;
 import com.fico.todo.security.TokenProvider;
 import com.fico.todo.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ import static com.fico.todo.utilities.Constants.VERSION_V1;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthenticationController {
+public class AuthController {
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -42,12 +42,12 @@ public class AuthenticationController {
 
 
     @PostMapping(path="/register", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Add a new user", response = User.class)
+    @ApiOperation(value = "Add a new user", response = AuthUser.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successfully created new User"),
             @ApiResponse(code = 400, message = "Invalid post body or parameter")
     })
-    public ResponseEntity register(@ApiParam(value = "Information of new User") @RequestBody User user){
+    public ResponseEntity register(@ApiParam(value = "Information of new User") @RequestBody AuthUser user){
         userService.save(user);
         return new ResponseEntity(user, HttpStatus.CREATED);
     }
@@ -58,7 +58,7 @@ public class AuthenticationController {
             @ApiResponse(code = 200, message = "Successfully authenticated User"),
             @ApiResponse(code = 400, message = "Invalid post body or parameter")
     })
-    public ResponseEntity<?> generateToken(@ApiParam(value = "User Credentials") @RequestBody LoginUser loginUser) throws AuthenticationException {
+    public ResponseEntity<?> generateToken(@ApiParam(value = "User Credentials") @RequestBody AuthLoginUser loginUser) throws AuthenticationException {
 
         try{
             final Authentication authentication = authenticationManager.authenticate(

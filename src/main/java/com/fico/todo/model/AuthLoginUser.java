@@ -1,6 +1,6 @@
-package com.fico.todo.model.auth;
+package com.fico.todo.model;
 
-public class LoginUser {
+public class AuthLoginUser {
 
     private String username;
     private String password;

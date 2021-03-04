@@ -1,7 +1,7 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.auth.Role;
-import com.fico.todo.model.auth.User;
+import com.fico.todo.model.AuthRole;
+import com.fico.todo.model.AuthUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,17 +10,17 @@ import java.util.*;
 
 public class UserPrincipal  implements UserDetails {
 
-    private User user;
+    private AuthUser user;
 
-    public UserPrincipal(User user) {
+    public UserPrincipal(AuthUser user) {
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Role> roles = user.getRoles();
+        Set<AuthRole> roles = user.getRoles();
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
-        for(Role role:roles){
+        for(AuthRole role:roles){
             authorityList.add(new SimpleGrantedAuthority(role.getRole()));
         }
        return authorityList;

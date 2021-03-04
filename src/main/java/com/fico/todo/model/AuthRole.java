@@ -1,10 +1,10 @@
-package com.fico.todo.model.auth;
+package com.fico.todo.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "auth_role")
-public class Role {
+public class AuthRole {
     @Id
     @Column(name = "auth_role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,9 +12,9 @@ public class Role {
     @Column(name = "role_name")
     private String role;
 
-    public Role(){}
+    public AuthRole(){}
 
-    public Role(String role, String description) {
+    public AuthRole(String role, String description) {
         this.role = role;
         this.description = description;
     }

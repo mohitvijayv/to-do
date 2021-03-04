@@ -1,4 +1,4 @@
-package com.fico.todo.model.response;
+package com.fico.todo.model;
 
 public class BaseApiResponse {
     private String version;

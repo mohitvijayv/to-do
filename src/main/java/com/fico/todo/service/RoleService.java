@@ -1,7 +1,7 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.auth.Role;
+import com.fico.todo.model.AuthRole;
 
 public interface RoleService {
-    Role findByName(String name);
+    AuthRole findByName(String name);
 }

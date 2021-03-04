@@ -1,4 +1,4 @@
-package com.fico.todo.model.auth;
+package com.fico.todo.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "auth_user")
-public class User {
+public class AuthUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auth_user_id")
@@ -14,7 +14,7 @@ public class User {
     @Column(name = "first_name")
     private String firstName;
 
-    public User(String firstName, String lastName, String username, String password) {
+    public AuthUser(String firstName, String lastName, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -31,9 +31,9 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "auth_user_role", joinColumns = @JoinColumn(name = "auth_user_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
 
-    private Set<Role> roles = new HashSet<Role>();
+    private Set<AuthRole> roles = new HashSet<AuthRole>();
 
-    public User() {
+    public AuthUser() {
 
     }
 
@@ -76,11 +76,11 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Set<Role> getRoles() {
+    public Set<AuthRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Set<AuthRole> roles) {
         this.roles = roles;
     }
 }

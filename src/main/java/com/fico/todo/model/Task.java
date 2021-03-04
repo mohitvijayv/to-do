@@ -1,4 +1,4 @@
-package com.fico.todo.model.task;
+package com.fico.todo.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
