@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -47,8 +48,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**", "/login", "/h2-console/**").permitAll()
-                .antMatchers("/api/v1/tasks/**").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/auth/**", "/login", "/h2-console/**", "/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger*/**", "/webjars/**").permitAll()
+                .antMatchers("/api/v1/tasks").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/api/v1/tasks/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint).and()
