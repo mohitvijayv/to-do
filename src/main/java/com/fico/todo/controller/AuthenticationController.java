@@ -3,6 +3,10 @@ package com.fico.todo.controller;
 import com.fico.todo.model.*;
 import com.fico.todo.security.TokenProvider;
 import com.fico.todo.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,14 +37,25 @@ public class AuthenticationController {
     @Autowired
     TokenProvider tokenProvider;
 
+
     @PostMapping(path="/register", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User register(@RequestBody User user){
+    @ApiOperation(value = "Add a new user", response = User.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successfully created new User"),
+            @ApiResponse(code = 400, message = "Invalid post body or parameter")
+    })
+    public ResponseEntity register(@ApiParam(value = "Information of new User") @RequestBody User user){
         userService.save(user);
-        return user;
+        return new ResponseEntity(user, HttpStatus.CREATED);
     }
 
     @PostMapping(value = "/authenticate")
-    public ResponseEntity<?> generateToken(@RequestBody LoginUser loginUser) throws AuthenticationException {
+    @ApiOperation(value = "Authenticate a user", response = String.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully authenticated User"),
+            @ApiResponse(code = 400, message = "Invalid post body or parameter")
+    })
+    public ResponseEntity<?> generateToken(@ApiParam(value = "User Credentials") @RequestBody LoginUser loginUser) throws AuthenticationException {
 
         try{
             final Authentication authentication = authenticationManager.authenticate(
