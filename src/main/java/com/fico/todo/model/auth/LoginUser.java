@@ -1,4 +1,4 @@
-package com.fico.todo.model;
+package com.fico.todo.model.auth;
 
 public class LoginUser {
 

@@ -1,9 +1,9 @@
 package com.fico.todo.controller;
 
-import com.fico.todo.model.Task;
-import com.fico.todo.model.TaskApiResponse;
-import com.fico.todo.repository.TaskRepository;
-import com.fico.todo.repository.UserRepository;
+import com.fico.todo.model.task.Task;
+import com.fico.todo.model.task.TaskApiResponse;
+import com.fico.todo.repository.task.TaskRepository;
+import com.fico.todo.repository.auth.UserRepository;
 import com.fico.todo.service.MyUserDetailsService;
 import static com.fico.todo.utilities.Constants.*;
 

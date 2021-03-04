@@ -1,6 +1,6 @@
-package com.fico.todo.repository;
+package com.fico.todo.repository.auth;
 
-import com.fico.todo.model.User;
+import com.fico.todo.model.auth.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

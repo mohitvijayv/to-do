@@ -1,7 +1,7 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.Role;
-import com.fico.todo.model.User;
+import com.fico.todo.model.auth.Role;
+import com.fico.todo.model.auth.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

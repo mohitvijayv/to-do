@@ -1,6 +1,9 @@
 package com.fico.todo.controller;
 
-import com.fico.todo.model.*;
+import com.fico.todo.model.auth.AuthToken;
+import com.fico.todo.model.auth.LoginUser;
+import com.fico.todo.model.auth.User;
+import com.fico.todo.model.response.BaseApiResponse;
 import com.fico.todo.security.TokenProvider;
 import com.fico.todo.service.UserService;
 import io.swagger.annotations.ApiOperation;

@@ -1,6 +1,6 @@
 package com.fico.todo;
-import com.fico.todo.model.Task;
-import com.fico.todo.repository.TaskRepository;
+import com.fico.todo.model.task.Task;
+import com.fico.todo.repository.task.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

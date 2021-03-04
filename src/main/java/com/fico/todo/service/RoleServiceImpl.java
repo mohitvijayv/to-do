@@ -1,7 +1,7 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.Role;
-import com.fico.todo.repository.RoleRepository;
+import com.fico.todo.model.auth.Role;
+import com.fico.todo.repository.auth.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
