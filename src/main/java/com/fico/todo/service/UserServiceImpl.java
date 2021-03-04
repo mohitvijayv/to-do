@@ -1,8 +1,8 @@
 package com.fico.todo.service;
 
-import com.fico.todo.model.Role;
-import com.fico.todo.model.User;
-import com.fico.todo.repository.UserRepository;
+import com.fico.todo.model.auth.Role;
+import com.fico.todo.model.auth.User;
+import com.fico.todo.repository.auth.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
