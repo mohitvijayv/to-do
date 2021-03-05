@@ -5,7 +5,7 @@ import com.fico.todo.model.AuthLoginUser;
 import com.fico.todo.model.AuthUser;
 import com.fico.todo.model.BaseApiResponse;
 import com.fico.todo.security.TokenProvider;
-import com.fico.todo.service.UserService;
+import com.fico.todo.service.AuthUserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -35,7 +35,7 @@ public class AuthController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    UserService userService;
+    AuthUserService userService;
 
     @Autowired
     TokenProvider tokenProvider;

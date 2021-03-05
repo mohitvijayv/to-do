@@ -1,6 +1,6 @@
 package com.fico.todo.security;
 
-import com.fico.todo.service.MyUserDetailsService;
+import com.fico.todo.service.AuthMyUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     public String TOKEN_PREFIX;
 
     @Autowired
-    private MyUserDetailsService userDetailsService;
+    private AuthMyUserDetailsService userDetailsService;
 
     @Autowired
     private TokenProvider tokenProvider;
