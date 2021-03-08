@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bf2adaf-b140-4e17-8d9e-8fceffad7683" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/exception/OperationNotAllowedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/exception/TaskNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/exception/UserNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthLoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthLoginUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/AuthUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/AuthUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/AuthUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/TaskServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/controller/TaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/controller/TaskController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthLoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthLoginUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/model/AuthUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/model/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/model/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/service/AuthUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/service/AuthUserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fico/todo/service/TaskServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fico/todo/service/TaskServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/AuthMyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fico/todo/service/AuthMyUserDetailsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +96,7 @@
       <workItem from="1613616712561" duration="20388000" />
       <workItem from="1613788189406" duration="85594000" />
       <workItem from="1614933566221" duration="8996000" />
-      <workItem from="1615044632866" duration="10051000" />
+      <workItem from="1615044632866" duration="10851000" />
     </task>
     <servers />
   </component>

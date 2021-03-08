@@ -32,10 +32,9 @@ public class AuthMyUserDetailsService implements UserDetailsService {
     public Set getRoleSet(Principal principal){
         AuthUser user = userRepository.findByUsername(principal.getName());
         Set<String> roles = new HashSet<String>();
-        Iterator value  = user.getRoles().iterator();
-        while (value.hasNext()){
-            roles.add(((AuthRole) value.next()).getRole());
-        }
+        user.getRoles().forEach(
+                (i)->roles.add(i.getRole())
+        );
         return roles;
     }
 
