@@ -44,13 +44,8 @@ public class TaskServiceImpl implements TaskService{
         throw new OperationNotAllowedException();
     }
 
-    public Optional<Task> findById(Long taskId){
-        Optional<Task> task = taskRepository.findById(taskId);
-        if(!task.isPresent()){
-            //return null;
-            throw new TaskNotFoundException();
-        }
-        return task;
+    public Task findById(Long taskId){
+        return taskRepository.findById(taskId).orElseThrow(()->new TaskNotFoundException());
     }
 
     public void delete(Long taskId){

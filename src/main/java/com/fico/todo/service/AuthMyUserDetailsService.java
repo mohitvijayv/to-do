@@ -12,6 +12,7 @@ import java.security.Principal;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -31,10 +32,7 @@ public class AuthMyUserDetailsService implements UserDetailsService {
 
     public Set getRoleSet(Principal principal){
         AuthUser user = userRepository.findByUsername(principal.getName());
-        Set<String> roles = new HashSet<String>();
-        user.getRoles().forEach(
-                (i)->roles.add(i.getRole())
-        );
+        Set<String> roles = user.getRoles().stream().map(AuthRole::getRole).collect(Collectors.toSet());
         return roles;
     }
 
