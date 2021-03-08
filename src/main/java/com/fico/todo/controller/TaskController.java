@@ -1,12 +1,13 @@
 package com.fico.todo.controller;
 
-import com.fico.todo.model.task.Task;
-import com.fico.todo.model.task.TaskApiResponse;
-import com.fico.todo.repository.task.TaskRepository;
-import com.fico.todo.repository.auth.UserRepository;
-import com.fico.todo.service.MyUserDetailsService;
+import com.fico.todo.exception.TaskNotFoundException;
+import com.fico.todo.model.Task;
+import com.fico.todo.model.TaskApiResponse;
+import com.fico.todo.service.AuthMyUserDetailsService;
 import static com.fico.todo.utilities.Constants.*;
 
+import com.fico.todo.service.TaskServiceImpl;
+import com.fico.todo.service.AuthUserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -16,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.*;
@@ -26,13 +28,13 @@ import java.util.*;
 public class TaskController {
 
     @Autowired
-    private TaskRepository taskRepository;
+    private TaskServiceImpl taskService;
 
     @Autowired
-    private UserRepository userRepository;
+    private AuthMyUserDetailsService userDetailsService;
 
     @Autowired
-    private MyUserDetailsService userDetailsService;
+    private AuthUserService userService;
 
 
     @PostMapping(path="tasks", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -42,7 +44,7 @@ public class TaskController {
             @ApiResponse(code = 400, message = "Invalid post body or parameter")
     })
     public ResponseEntity addTask(@ApiParam(value = "Information of new Task") @RequestBody Task task){
-        taskRepository.save(task);
+        taskService.create(task);
         return new ResponseEntity<>(task, HttpStatus.CREATED);
     }
 
@@ -53,7 +55,7 @@ public class TaskController {
             @ApiResponse(code = 400, message = "Invalid post body or parameter")
     })
     public ResponseEntity updateTask(@ApiParam(value = "Information of task to be updated") @RequestBody Task task){
-        taskRepository.save(task);
+        taskService.create(task);
         return new ResponseEntity(task, HttpStatus.CREATED);
     }
 
@@ -66,11 +68,7 @@ public class TaskController {
             @ApiResponse(code = 403, message = "Not Authorized to perform this operation")
     })
      public ResponseEntity getTasks(Principal principal){
-        Set<String> roles = userDetailsService.getRoleSet(principal);
-        if(roles.contains("ADMIN"))
-            return new ResponseEntity(taskRepository.findAll(), HttpStatus.OK);
-        System.out.println("Not authorized to do this operation");
-        return new ResponseEntity(HttpStatus.FORBIDDEN);
+            return new ResponseEntity(taskService.findAll(principal), HttpStatus.OK);
 
     }
 
@@ -81,17 +79,11 @@ public class TaskController {
             @ApiResponse(code = 404, message = "No tasks found"),
             @ApiResponse(code = 403, message = "Not Authorized to perform this operation")
     })
-    public ResponseEntity<TaskApiResponse> getTasksByUserId(@ApiParam(value = "user Id", required = true) @RequestParam(value="userId") Optional<Long> userId, Principal principal){
-        Set<String> roles = userDetailsService.getRoleSet(principal);
-        if(principal.getName()==userRepository.findById(userId).getUsername() || roles.contains("ADMIN")) {
-            TaskApiResponse response = new TaskApiResponse("S01",
-                    S01_TASK_API_RES,
-                    "v1",
-                    taskRepository.findByUserId(userId));
-            return ResponseEntity.ok(response);
-        }
-        TaskApiResponse response = new TaskApiResponse("F01", F01_TASK_API_RES, VERSION_V1);
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(response);
+    public ResponseEntity getTasksByUserId(@ApiParam(value = "user Id", required = true) @RequestParam(value="userId") Optional<Long> userId, Principal principal){
+
+          List tasksList = taskService.findByUserId(userId, principal);
+              return ResponseEntity.ok(tasksList);
+
     }
 
 
@@ -102,8 +94,9 @@ public class TaskController {
             @ApiResponse(code = 404, message = "No tasks found"),
             @ApiResponse(code = 403, message = "Not Authorized to perform this operation")
     })
-    public Optional<Task> getTask(@ApiParam(value = "Task's Id") @PathVariable("taskId") Long taskId){
-        return taskRepository.findById(taskId);
+    public ResponseEntity getTask(@ApiParam(value = "Task's Id") @PathVariable("taskId") Long taskId){
+        return ResponseEntity.ok(taskService.findById(taskId));
+
     }
 
 
@@ -114,9 +107,8 @@ public class TaskController {
             @ApiResponse(code = 404, message = "Task not found"),
     })
     public ResponseEntity deleteTask(@ApiParam(value = "Task's Id") @PathVariable Long taskId){
-        Task a = taskRepository.getOne(taskId);
-        taskRepository.delete(a);
-        return new ResponseEntity(HttpStatus.OK);
+        taskService.delete(taskId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
