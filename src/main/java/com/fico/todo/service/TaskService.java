@@ -13,7 +13,7 @@ public interface TaskService {
 
     List findByUserId(Optional<Long> userId, Principal principal);
 
-    Optional<Task> findById(Long taskId);
+    Task findById(Long taskId);
 
     void delete(Long taskId);
 
