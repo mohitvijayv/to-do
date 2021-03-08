@@ -1,5 +1,6 @@
 package com.fico.todo.controller;
 
+import com.fico.todo.exception.TaskNotFoundException;
 import com.fico.todo.model.Task;
 import com.fico.todo.model.TaskApiResponse;
 import com.fico.todo.service.AuthMyUserDetailsService;
@@ -16,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.*;
@@ -66,11 +68,7 @@ public class TaskController {
             @ApiResponse(code = 403, message = "Not Authorized to perform this operation")
     })
      public ResponseEntity getTasks(Principal principal){
-        Set<String> roles = userDetailsService.getRoleSet(principal);
-        if(roles.contains("ADMIN"))
-            return new ResponseEntity(taskService.findAll(), HttpStatus.OK);
-        System.out.println("Not authorized to do this operation");
-        return new ResponseEntity(HttpStatus.FORBIDDEN);
+            return new ResponseEntity(taskService.findAll(principal), HttpStatus.OK);
 
     }
 
@@ -84,14 +82,7 @@ public class TaskController {
     public ResponseEntity getTasksByUserId(@ApiParam(value = "user Id", required = true) @RequestParam(value="userId") Optional<Long> userId, Principal principal){
 
           List tasksList = taskService.findByUserId(userId, principal);
-
-          if(tasksList != Collections.emptyList() ){
-              System.out.println("in loop");
               return ResponseEntity.ok(tasksList);
-          }
-
-          TaskApiResponse response = new TaskApiResponse("F01", F01_TASK_API_RES, VERSION_V1);
-          return ResponseEntity.status(HttpStatus.FORBIDDEN).body(response);
 
     }
 
@@ -103,8 +94,9 @@ public class TaskController {
             @ApiResponse(code = 404, message = "No tasks found"),
             @ApiResponse(code = 403, message = "Not Authorized to perform this operation")
     })
-    public Optional<Task> getTask(@ApiParam(value = "Task's Id") @PathVariable("taskId") Long taskId){
-        return taskService.findById(taskId);
+    public ResponseEntity getTask(@ApiParam(value = "Task's Id") @PathVariable("taskId") Long taskId){
+        return ResponseEntity.ok(taskService.findById(taskId));
+
     }
 
 
@@ -116,7 +108,7 @@ public class TaskController {
     })
     public ResponseEntity deleteTask(@ApiParam(value = "Task's Id") @PathVariable Long taskId){
         taskService.delete(taskId);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 

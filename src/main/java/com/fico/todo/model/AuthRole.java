@@ -1,15 +1,21 @@
 package com.fico.todo.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "auth_role")
+@ApiModel
 public class AuthRole {
     @Id
     @Column(name = "auth_role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Role's Id", position = 1)
     private int id;
     @Column(name = "role_name")
+    @ApiModelProperty(notes = "Role's name", position = 2)
     private String role;
 
     public AuthRole(){}
@@ -20,6 +26,7 @@ public class AuthRole {
     }
 
     @Column(name = "role_description")
+    @ApiModelProperty(notes = "Role's description", position = 3)
     private String description;
 
     public int getId() {

@@ -1,7 +1,11 @@
 package com.fico.todo.model;
 
-public class AuthToken {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel
+public class AuthToken {
+    @ApiModelProperty(notes = "Token's string", position = 1)
     private String token;
 
     public AuthToken(){

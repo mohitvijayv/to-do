@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface TaskService {
     Task create(Task task);
 
-    List<Task> findAll();
+    List<Task> findAll(Principal principal);
 
     List findByUserId(Optional<Long> userId, Principal principal);
 

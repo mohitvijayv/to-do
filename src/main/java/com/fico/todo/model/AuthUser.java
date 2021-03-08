@@ -1,17 +1,23 @@
 package com.fico.todo.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "auth_user")
+@ApiModel
 public class AuthUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auth_user_id")
+    @ApiModelProperty(notes = "User's ID", position = 1)
     private Long id;
     @Column(name = "first_name")
+    @ApiModelProperty(notes = "User's first name", position = 2)
     private String firstName;
 
     public AuthUser(String firstName, String lastName, String username, String password) {
@@ -22,10 +28,13 @@ public class AuthUser {
     }
 
     @Column(name = "last_name")
+    @ApiModelProperty(notes = "User's last name", position = 3)
     private String lastName;
     @Column(name = "username")
+    @ApiModelProperty(notes = "User's username", position = 4)
     private String username;
     @Column(name = "password")
+    @ApiModelProperty(notes = "User's password", position = 5)
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)

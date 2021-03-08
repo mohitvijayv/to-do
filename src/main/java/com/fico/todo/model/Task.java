@@ -1,19 +1,29 @@
 package com.fico.todo.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
 @Table(name="tasks")
+@ApiModel
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Task's ID", position = 1)
     private Long taskId;
+    @ApiModelProperty(notes = "User ID with which task is associated", position = 2)
     private Long userId;
+    @ApiModelProperty(notes = "Task's name", position = 3)
     private String taskName;
+    @ApiModelProperty(notes = "Task's description", position = 4)
     private String description;
+    @ApiModelProperty(notes = "Task's due date", position = 5)
     private Timestamp taskDueDate;
+    @ApiModelProperty(notes = "Task's status ID", position = 6)
     private int statusId;
 
     public Task(){}

@@ -1,5 +1,6 @@
 package com.fico.todo.service;
 
+import com.fico.todo.exception.UserNotFoundException;
 import com.fico.todo.model.AuthRole;
 import com.fico.todo.model.AuthUser;
 import com.fico.todo.repository.AuthUserRepository;
@@ -35,7 +36,11 @@ public class AuthUserServiceImpl implements AuthUserService {
 
     @Override
     public AuthUser findById(Optional<Long> userId) {
-        return userRepository.findById(userId);
+        AuthUser user = userRepository.findById(userId);
+        if(user==null){
+            throw new UserNotFoundException();
+        }
+        return user;
     }
 
 
