@@ -1,10 +1,7 @@
 package com.fico.todo.controller;
 
-import com.fico.todo.exception.TaskNotFoundException;
 import com.fico.todo.model.Task;
-import com.fico.todo.model.TaskApiResponse;
 import com.fico.todo.service.AuthMyUserDetailsService;
-import static com.fico.todo.utilities.Constants.*;
 
 import com.fico.todo.service.TaskServiceImpl;
 import com.fico.todo.service.AuthUserService;
@@ -17,24 +14,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.*;
 
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("api/v1/")
 public class TaskController {
 
     @Autowired
     private TaskServiceImpl taskService;
-
-    @Autowired
-    private AuthMyUserDetailsService userDetailsService;
-
-    @Autowired
-    private AuthUserService userService;
 
 
     @PostMapping(path="tasks", consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -12,4 +12,6 @@ public interface AuthUserService {
 
     AuthUser findById(Optional<Long> userId);
 
+    AuthUser findByUsername(String username);
+
 }

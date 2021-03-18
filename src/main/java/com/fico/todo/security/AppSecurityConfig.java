@@ -44,8 +44,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-
-        httpSecurity.cors().and().csrf().disable()
+        httpSecurity.cors();
+        httpSecurity.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**", "/login", "/h2-console/**", "/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger*/**", "/webjars/**").permitAll()
                 .antMatchers("/api/v1/tasks").hasAnyAuthority("USER", "ADMIN")
@@ -53,7 +53,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        ;
 
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         httpSecurity.headers().frameOptions().disable();

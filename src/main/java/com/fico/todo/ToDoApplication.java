@@ -20,10 +20,14 @@ public class ToDoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.taskRepository.save(new Task( Long.valueOf(1), "mohit", "first task", Timestamp.valueOf("2021-02-20 23:59:59") , 1));
-        this.taskRepository.save(new Task( Long.valueOf(1), "mohit2", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), 2));
-        this.taskRepository.save(new Task( Long.valueOf(2), "mohit", "first task", Timestamp.valueOf("2021-02-20 23:59:59"), 2));
-        this.taskRepository.save(new Task( Long.valueOf(2), "mohit2", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), 1));
+        this.taskRepository.save(new Task( Long.valueOf(1), "one", "first task", Timestamp.valueOf("2021-02-20 23:59:59") , true));
+        this.taskRepository.save(new Task( Long.valueOf(1), "two", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), false));
+        this.taskRepository.save(new Task( Long.valueOf(1), "three", "first task", Timestamp.valueOf("2021-02-20 23:59:59") , true));
+        this.taskRepository.save(new Task( Long.valueOf(1), "four", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), false));
+        this.taskRepository.save(new Task( Long.valueOf(1), "mohit", "first task", Timestamp.valueOf("2021-02-20 23:59:59") , true));
+        this.taskRepository.save(new Task( Long.valueOf(1), "mohit2", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), false));
+        this.taskRepository.save(new Task( Long.valueOf(2), "mohit", "first task", Timestamp.valueOf("2021-02-20 23:59:59"), true));
+        this.taskRepository.save(new Task( Long.valueOf(2), "mohit2", "second task", Timestamp.valueOf("2021-02-20 23:59:59"), false));
 
     }
 }

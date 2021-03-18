@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,17 +20,23 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.*;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.security.Principal;
 
 import static com.fico.todo.utilities.Constants.VERSION_V1;
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
+    @Value("${jwt.token.validity}")
+    public long TOKEN_VALIDITY;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -70,7 +77,8 @@ public class AuthController {
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
             final String token = tokenProvider.generateToken(authentication);
-            return ResponseEntity.ok(new AuthToken(token));
+
+            return ResponseEntity.ok(new AuthToken(token, TOKEN_VALIDITY));
         } catch (Exception e){
             System.out.println("ERROR WHILE AUTH VALIDATE ###########");
             BaseApiResponse br = new BaseApiResponse("F02", "USER NOT FOUND", VERSION_V1);
@@ -78,6 +86,7 @@ public class AuthController {
         }
 
     }
+
 
 
 
