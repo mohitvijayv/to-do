@@ -24,11 +24,11 @@ public class Task {
     @ApiModelProperty(notes = "Task's due date", position = 5)
     private Timestamp taskDueDate;
     @ApiModelProperty(notes = "Task's status ID", position = 6)
-    private int statusId;
+    private boolean statusId;
 
     public Task(){}
 
-    public Task(Long userId, String taskName, String description, Timestamp taskDueDate, int statusId) {
+    public Task(Long userId, String taskName, String description, Timestamp taskDueDate, boolean statusId) {
         this.userId = userId;
         this.taskName = taskName;
         this.description = description;
@@ -81,11 +81,11 @@ public class Task {
         this.taskDueDate = taskDueDate;
     }
 
-    public int getStatusId() {
+    public boolean getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(boolean statusId) {
         this.statusId = statusId;
     }
 }
